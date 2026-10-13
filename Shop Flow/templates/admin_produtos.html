@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-admin">
+        <h1>🔐 ShopFlow Admin</h1>
+        <div class="nav-links">
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="page-header">
+            <h2>📦 Produtos</h2>
+            <a href="/admin/produtos/novo" class="btn-primary">+ Novo Produto</a>
+        </div>
+
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.get_id() }}</td>
+                    <td>{{ produto.get_nome() }}</td>
+                    <td>{{ produto.get_categoria() }}</td>
+                    <td>R$ {{ "%.2f"|format(produto.get_preco()) }}</td>
+                    <td>{{ produto.get_estoque() }}</td>
+                    <td>
+                        <a href="/admin/produtos/remover/{{ produto.get_id() }}" 
+                           class="btn-perigo"
+                           onclick="return confirm('Remover este produto?')">Remover</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

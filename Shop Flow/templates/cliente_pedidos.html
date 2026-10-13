@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Meus Pedidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-cliente">
+        <h1>🛍️ ShopFlow</h1>
+        <div class="nav-links">
+            <a href="/cliente/dashboard">Dashboard</a>
+            <a href="/cliente/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>📦 Meus Pedidos</h2>
+
+        {% if pedidos %}
+        {% for pedido in pedidos %}
+        <div class="pedido-card">
+            <div class="pedido-header">
+                <span><strong>Pedido #{{ pedido.get_id() }}</strong></span>
+                <span>{{ pedido.get_data() }}</span>
+                <span class="badge">{{ pedido.get_status() }}</span>
+            </div>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Qtd</th>
+                        <th>Preço unit.</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in pedido.get_itens() %}
+                    <tr>
+                        <td>{{ item.get_produto().get_nome() }}</td>
+                        <td>{{ item.get_quantidade() }}</td>
+                        <td>R$ {{ "%.2f"|format(item.get_preco_unitario()) }}</td>
+                        <td>R$ {{ "%.2f"|format(item.get_subtotal()) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="pedido-total">
+                Total: R$ {{ "%.2f"|format(pedido.calcular_total()) }}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="vazio">
+            Você ainda não fez nenhum pedido.
+            <a href="/cliente/produtos">Comprar agora</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

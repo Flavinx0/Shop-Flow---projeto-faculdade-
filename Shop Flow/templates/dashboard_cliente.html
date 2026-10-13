@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Área do Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-cliente">
+        <h1>🛍️ ShopFlow</h1>
+        <div class="nav-links">
+            <span>Olá, {{ cliente.get_nome() }}</span>
+            <a href="/cliente/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>O que você quer fazer?</h2>
+
+        <div class="menu-grid">
+            <a href="/cliente/produtos" class="menu-card">
+                <div class="menu-icon">🛒</div>
+                <h3>Ver Produtos</h3>
+                <p>Explore nosso catálogo</p>
+            </a>
+            <a href="/cliente/carrinho" class="menu-card">
+                <div class="menu-icon">🧺</div>
+                <h3>Meu Carrinho</h3>
+                <p>Veja os itens selecionados</p>
+            </a>
+            <a href="/cliente/pedidos" class="menu-card">
+                <div class="menu-icon">📦</div>
+                <h3>Meus Pedidos</h3>
+                <p>Acompanhe seus pedidos</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Dashboard Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-admin">
+        <h1>🔐 ShopFlow Admin</h1>
+        <div class="nav-links">
+            <span>Olá, {{ admin.get_nome() }}</span>
+            <a href="/admin/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>Painel Administrativo</h2>
+
+        <div class="menu-grid">
+            <a href="/admin/produtos" class="menu-card">
+                <div class="menu-icon">📦</div>
+                <h3>Produtos</h3>
+                <p>Cadastrar e gerenciar produtos</p>
+            </a>
+            <a href="/admin/pedidos" class="menu-card">
+                <div class="menu-icon">📋</div>
+                <h3>Pedidos</h3>
+                <p>Ver e atualizar pedidos</p>
+            </a>
+            <a href="/admin/admins" class="menu-card">
+                <div class="menu-icon">👤</div>
+                <h3>Administradores</h3>
+                <p>Gerenciar admins do sistema</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

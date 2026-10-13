@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Novo Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-admin">
+        <h1>🔐 ShopFlow Admin</h1>
+        <div class="nav-links">
+            <a href="/admin/produtos">← Voltar</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>+ Novo Produto</h2>
+
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label>Nome do produto</label>
+                    <input type="text" name="nome" placeholder="Ex: Camiseta Básica" required>
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" name="descricao" placeholder="Descrição do produto" required>
+                </div>
+                <div class="form-group">
+                    <label>Preço (R$)</label>
+                    <input type="number" name="preco" step="0.01" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <input type="text" name="categoria" placeholder="Ex: Roupas, Calçados" required>
+                </div>
+                <div class="form-group">
+                    <label>Estoque</label>
+                    <input type="number" name="estoque" placeholder="Quantidade em estoque" required>
+                </div>
+                <button type="submit" class="btn-primary">Cadastrar Produto</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

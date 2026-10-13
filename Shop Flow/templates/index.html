@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="index-container">
+        <div class="index-logo">
+            <h1>🛍️ ShopFlow</h1>
+            <p>Plataforma de E-commerce</p>
+        </div>
+
+        <div class="index-cards">
+            <a href="/admin/login" class="card card-admin">
+                <div class="card-icon">🔐</div>
+                <h2>Área Admin</h2>
+                <p>Gerencie produtos, pedidos e configurações da loja</p>
+                <span class="btn-card">Entrar como Admin</span>
+            </a>
+
+            <a href="/cliente/login" class="card card-cliente">
+                <div class="card-icon">🛒</div>
+                <h2>Área Cliente</h2>
+                <p>Explore produtos e faça seus pedidos</p>
+                <span class="btn-card">Entrar como Cliente</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

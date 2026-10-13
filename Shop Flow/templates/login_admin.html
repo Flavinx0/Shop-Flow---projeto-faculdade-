@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Login Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>🔐 ShopFlow</h1>
+            <h2>Área Administrativa</h2>
+
+            {% if erro %}
+            <div class="alerta-erro">{{ erro }}</div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="admin@shopflow.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="senha" placeholder="Sua senha" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+
+            <a href="/" class="link-voltar">← Voltar ao início</a>
+        </div>
+    </div>
+</body>
+</html>

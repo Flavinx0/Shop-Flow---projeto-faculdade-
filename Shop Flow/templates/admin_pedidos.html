@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Pedidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-admin">
+        <h1>🔐 ShopFlow Admin</h1>
+        <div class="nav-links">
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>📋 Pedidos</h2>
+
+        {% if pedidos %}
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Atualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>#{{ pedido.get_id() }}</td>
+                    <td>{{ pedido.get_cliente().get_nome() }}</td>
+                    <td>R$ {{ "%.2f"|format(pedido.calcular_total()) }}</td>
+                    <td>{{ pedido.get_data() }}</td>
+                    <td><span class="badge">{{ pedido.get_status() }}</span></td>
+                    <td>
+                        <form method="POST" action="/admin/pedidos/status/{{ pedido.get_id() }}">
+                            <select name="status">
+                                <option>Pendente</option>
+                                <option>Confirmado</option>
+                                <option>Enviado</option>
+                                <option>Entregue</option>
+                                <option>Cancelado</option>
+                            </select>
+                            <button type="submit" class="btn-primary">Salvar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="vazio">Nenhum pedido realizado ainda.</div>
+        {% endif %}
+    </div>
+</body>
+</html>

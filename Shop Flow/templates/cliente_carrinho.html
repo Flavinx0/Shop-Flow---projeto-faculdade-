@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Carrinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-cliente">
+        <h1>🛍️ ShopFlow</h1>
+        <div class="nav-links">
+            <a href="/cliente/produtos">← Continuar comprando</a>
+            <a href="/cliente/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>🧺 Meu Carrinho</h2>
+
+        {% if carrinho.itens %}
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Subtotal</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in carrinho.itens %}
+                <tr>
+                    <td>{{ item.nome }}</td>
+                    <td>R$ {{ "%.2f"|format(item.preco) }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>R$ {{ "%.2f"|format(item.subtotal) }}</td>
+                    <td>
+                        <a href="/cliente/carrinho/remover/{{ item.id }}" class="btn-perigo">Remover</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="carrinho-total">
+            <h3>Total: R$ {{ "%.2f"|format(carrinho.total) }}</h3>
+            <form method="POST" action="/cliente/finalizar">
+                <button type="submit" class="btn-primary">✅ Finalizar Pedido</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="vazio">
+            Seu carrinho está vazio.
+            <a href="/cliente/produtos">Ver produtos</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

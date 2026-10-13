@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Novo Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-admin">
+        <h1>🔐 ShopFlow Admin</h1>
+        <div class="nav-links">
+            <a href="/admin/admins">← Voltar</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>+ Novo Administrador</h2>
+
+        {% if erro %}
+        <div class="alerta-erro">{{ erro }}</div>
+        {% endif %}
+
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" placeholder="Nome do administrador" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="email@shopflow.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="senha" placeholder="Crie uma senha" required>
+                </div>
+                <button type="submit" class="btn-primary">Cadastrar Admin</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

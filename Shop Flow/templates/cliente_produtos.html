@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlow - Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-cliente">
+        <h1>🛍️ ShopFlow</h1>
+        <div class="nav-links">
+            <a href="/cliente/carrinho">🧺 Carrinho</a>
+            <a href="/cliente/dashboard">Dashboard</a>
+            <a href="/cliente/logout">Sair</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>🛒 Produtos disponíveis</h2>
+
+        <div class="produtos-grid">
+            {% for produto in produtos %}
+            <div class="produto-card">
+                <h3>{{ produto.get_nome() }}</h3>
+                <p class="produto-categoria">{{ produto.get_categoria() }}</p>
+                <p class="produto-descricao">{{ produto.get_descricao() }}</p>
+                <p class="produto-preco">R$ {{ "%.2f"|format(produto.get_preco()) }}</p>
+                <p class="produto-estoque">Estoque: {{ produto.get_estoque() }}</p>
+                {% if produto.tem_estoque() %}
+                <a href="/cliente/carrinho/adicionar/{{ produto.get_id() }}" class="btn-primary">
+                    Adicionar ao carrinho
+                </a>
+                {% else %}
+                <span class="btn-desabilitado">Sem estoque</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

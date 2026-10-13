@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.navbar-admin {
+    background-color: #2c3e50;
+}
+
+.navbar-cliente {
+    background-color: #27ae60;
+}
+
+.navbar h1 {
+    font-size: 1.4rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-links span {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* ===== INDEX ===== */
+.index-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.index-logo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.index-logo h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+}
+
+.index-logo p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 0.5rem;
+}
+
+.index-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    width: 280px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.btn-card {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+}
+
+.card-admin .btn-card {
+    background-color: #2c3e50;
+}
+
+.card-cliente .btn-card {
+    background-color: #27ae60;
+}
+
+/* ===== LOGIN ===== */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-box {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.login-box h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.login-box h2 {
+    font-size: 1rem;
+    text-align: center;
+    color: #777;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+/* ===== FORMULÁRIOS ===== */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #27ae60;
+}
+
+.form-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== BOTÕES ===== */
+.btn-primary {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #219a52;
+}
+
+.btn-perigo {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.btn-perigo:hover {
+    background-color: #c0392b;
+}
+
+.btn-desabilitado {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background-color: #ccc;
+    color: #888;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: not-allowed;
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.dashboard-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+}
+
+.menu-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.menu-card p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* ===== TABELA ===== */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.tabela th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.tabela td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.tabela tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela tr:hover td {
+    background-color: #fafafa;
+}
+
+/* ===== PRODUTOS ===== */
+.produtos-grid {
+    display: grid;
+    grid-te
